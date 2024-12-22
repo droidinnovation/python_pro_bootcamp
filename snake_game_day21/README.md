@@ -7,14 +7,12 @@
 | Control the snake   | Detect collision with wall |
 |                     | Detect collision with tail |
 
-## Research
+## Create classes
 
-Some notes have been collected about these machines.
+- Snake class
+- Food class
+- Scoreboard
 
-- Batch file
-- 6809
-- PDP-1
-- PDP-4/7/9/15
-- PDP-10
-- Shell script
-- Xtensa
+## Notes
+- screen.update() to refresh the screen
+- using the timer to delay the refresh so that we can control how often it happens.

@@ -24,4 +24,12 @@ Detect when the turtle player has reached the top edge of the screen (i.e., reac
 
 Create a scoreboard that keeps track of which level the user is on. Every time the turtle player does a successful crossing, the level should increase. When the turtle hits a car, GAME OVER should be displayed in the centre. If you get stuck, check the video walkthrough in Step 7.
 
+## Split up large problem into smaller sub-parts
+
+- [x] Move the turtle with keypress
+- [ ] Create and move the cars
+- [ ] Detect collision with cars
+- [ ] Detect when the turtle reaches the other side
+- [ ] Create a scoreboard
+
 

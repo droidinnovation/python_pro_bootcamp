@@ -27,9 +27,9 @@ Create a scoreboard that keeps track of which level the user is on. Every time t
 ## Split up large problem into smaller sub-parts
 
 - [x] Move the turtle with keypress
-- [ ] Create and move the cars
-- [ ] Detect collision with cars
-- [ ] Detect when the turtle reaches the other side
+- [x] Create and move the cars
+- [x] Detect collision with cars
+- [x] Detect when the turtle reaches the other side
 - [ ] Create a scoreboard
 
 

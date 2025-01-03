@@ -30,6 +30,6 @@ Create a scoreboard that keeps track of which level the user is on. Every time t
 - [x] Create and move the cars
 - [x] Detect collision with cars
 - [x] Detect when the turtle reaches the other side
-- [ ] Create a scoreboard
+- [x] Create a scoreboard
 
 

@@ -16,3 +16,5 @@
 ## Notes
 - screen.update() to refresh the screen
 - using the timer to delay the refresh so that we can control how often it happens.
+
+## Read/write high score to file 

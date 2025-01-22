@@ -69,7 +69,7 @@ def listbox_used(event):
     # Gets current selection from listbox
     print(listbox.get(listbox.curselection()))
     # print(event)
-fruits = ["Apple", "Pear", "Orange", "Banana"]
+fruits = ["Apple", "Pear", "Orange", "Banana", "Strawberry","Water melon"]
 listbox = Listbox(height=len(fruits))
 for item in fruits:
     listbox.insert(fruits.index(item), item)

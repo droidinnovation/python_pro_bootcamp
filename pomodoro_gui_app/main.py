@@ -8,13 +8,25 @@ RED = "#e7305b"
 GREEN = "#9bdeac"
 YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
-WORK_MIN = 1
-SHORT_BREAK_MIN = 0.5
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
+timer = "None"
 
 
 # ---------------------------- TIMER RESET ------------------------------- #
+def reset_timer():
+    start_btn.config(state=NORMAL)
+    reset_btn.config(state=DISABLED)
+
+    window.after_cancel(timer)
+    canvas.itemconfig(timer_text, text="00:00")
+    timer_label.config(text="Timer")
+    checkmark_done.config(text="")
+    global reps
+    reps = 0
+
 
 # ---------------------------- TIMER MECHANISM ------------------------------- #
 
@@ -36,18 +48,26 @@ def start_timer():
         count_down(work_sec)
         timer_label.config(text="Work", fg=GREEN)
 
+    start_btn.config(state=DISABLED)
+    reset_btn.config(state=NORMAL)
 
 def count_down(count):
     count_minute = math.floor(count/60)
     count_second = count % 60
-    if count_second <10:
+    if count_second < 10:
         count_second = f"0{count_second}"
 
     canvas.itemconfig(timer_text, text=f"{count_minute}:{count_second}")
     if count > 0:
-        window.after(1000, count_down, count - 1)
+        global timer
+        timer = window.after(1000, count_down, count - 1)
     else:
         start_timer()
+        marks = ""
+        work_sessions = math.floor(reps/2)
+        for _ in range(work_sessions):
+            marks += "✓"
+        checkmark_done.config(text=marks)
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -62,8 +82,8 @@ timer_text = canvas.create_text(100,130,text="00:00",fill="white", font=(FONT_NA
 timer_label = Label(text="Timer", foreground=GREEN, background=YELLOW, font=(FONT_NAME, 45))
 
 start_btn = Button(text="Start", bg=YELLOW, highlightbackground=YELLOW, command=start_timer)
-reset_btn = Button(text="Reset", highlightbackground=YELLOW)
-checkmark_done = Label(text="✔", fg=GREEN, bg=YELLOW, font=(FONT_NAME,40))
+reset_btn = Button(text="Reset", highlightbackground=YELLOW, command=reset_timer)
+checkmark_done = Label(fg=GREEN, bg=YELLOW, font=(FONT_NAME,40))
 
 
 canvas.grid(row=1, column=1)
